@@ -1,0 +1,11 @@
+---
+parser: babel-eslint
+
+extends: airbnb
+
+env:
+  jasmine: true
+
+rules:
+  comma-dangle: 0
+  max-len: ["error", 120]

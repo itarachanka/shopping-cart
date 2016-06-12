@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+  <div id="root" class="container">
+    <header class="header">
+      <h1>Shopping Cart</h1>
+    </header>
+    <div class="container">
+    <div class="row">
+    <div class="col-sm-6">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="name" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="type" class="col-sm-2 control-label">Type</label>
+          <div class="col-sm-10">
+            <select class="form-control" id="type">
+              <option value="Book">Book</option>
+              <option value="eBook">eBook</option>
+              <option value="Movie">Movie</option>
+              <option value="Song">Song</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="description" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="price" class="col-sm-2 control-label">Price</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="price" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="discount" class="col-sm-2 control-label">Discount</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="discount" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-default" id="add">Add Item</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Price with Discount</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tfoot>
+            </tfoot>
+            <tbody></tboby>
+        </table>
+    </div>
+  </div>
+  <script src="/static/bundle.js"></script>
+</body>
+</html>
