@@ -59,7 +59,7 @@ describe('Cart', () => {
         price: 100,
         discount: 5
       }, { parse: true });
-      cart.remove(item.get('id'));
+      cart.remove(item.id);
 
       expect(callback).toHaveBeenCalled();
     });

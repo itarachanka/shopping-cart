@@ -7,7 +7,10 @@ module.exports = (config) => {
         { type: 'html', subdir: '.' }
       ]
     },
-    files: ['test/**/*.js'],
+    files: [
+      './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
+      'test/**/*.js'
+    ],
     frameworks: ['jasmine'],
     preprocessors: {
       'test/**/*.js': ['webpack'],
