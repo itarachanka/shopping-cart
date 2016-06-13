@@ -4,7 +4,7 @@ import View from './View';
 import Controller from './Controller';
 
 ((d) => {
-  const cart = new Cart([], {
+  const cart = new Cart({
     model: CartItem
   });
   const view = new View({

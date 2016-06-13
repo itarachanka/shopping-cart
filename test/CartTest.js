@@ -11,7 +11,7 @@ describe('Cart', () => {
     let callback;
 
     beforeEach(() => {
-      cart = new Cart([], {
+      cart = new Cart({
         model: CartItem
       });
       callback = jasmine.createSpy('event callback');

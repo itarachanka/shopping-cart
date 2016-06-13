@@ -2,9 +2,6 @@ import EventEmitter from './EventEmitter';
 
 let idCounter = 0;
 
-function uniqueId() {
-  return ++idCounter;
-}
 // Cart item.
 // Implements:
 //  set/get - mutators
@@ -18,7 +15,6 @@ class CartItem extends EventEmitter {
       // parse/transform attributes
       this.props = this.parse(props);
     }
-    this.props.id = uniqueId();
     this.props.discountSum = Number(props.price) * Number(props.discount) / 100;
     this.set(props);
   }

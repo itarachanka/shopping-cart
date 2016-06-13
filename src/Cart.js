@@ -1,6 +1,11 @@
 import EventEmitter from './EventEmitter';
 
+let idCounter = 0;
 const APP = 'shopping-cart';
+
+function uniquiId() {
+  return ++idCounter;
+}
 
 function localstorage() {
   try {
@@ -14,11 +19,11 @@ function localstorage() {
 
 // Cart.
 class Cart extends EventEmitter {
-  constructor(items = [], options = {}) {
+  constructor(options = {}) {
     super();
     if (options.model) this.model = options.model;
     this.localstorage = localstorage();
-    this.reset(items);
+    this.items = [];
   }
 
   calc() {
@@ -40,6 +45,7 @@ class Cart extends EventEmitter {
     items = singular ? [items] : items.slice();
 
     items.forEach(item => {
+      item.id = uniquiId();
       item = new this.model(item, options);
       if (item.validationError) {
         this.trigger('invalid', item.validationError);
@@ -80,11 +86,11 @@ class Cart extends EventEmitter {
     if (this.localstorage) {
       items = JSON.parse(this.localstorage.getItem(APP) || '{}').items || [];
     }
+    idCounter = items.length;
     this.reset(items);
   }
 
   reset(items) {
-    this.length = 0;
     this.items = [];
 
     items = this.add(items, { silent: true, parse: true });
