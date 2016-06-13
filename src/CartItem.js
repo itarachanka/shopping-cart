@@ -25,7 +25,7 @@ class CartItem extends EventEmitter {
     }
     if (this.validate(values)) {
       Object.assign(this.props, values);
-      this.props.discountSum = Number(values.price) * Number(values.discount) / 100;
+      this.props.discountSum = Number(values.price) * (1 - Number(values.discount) / 100);
       this.trigger('change', this, options);
     }
   }
