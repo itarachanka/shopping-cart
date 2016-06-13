@@ -13,13 +13,13 @@ function uniqueId() {
 class CartItem extends EventEmitter {
   constructor(props = {}, options = {}) {
     super();
-    this._props = {};
+    this.props = {};
     if (options.parse) {
       // parse/transform attributes
-      props = this.parse(props);
+      this.props = this.parse(props);
     }
-    props.id = uniqueId();
-    props.discountSum = Number(props.price)*Number(props.discount) / 100;
+    this.props.id = uniqueId();
+    this.props.discountSum = Number(props.price) * Number(props.discount) / 100;
     this.set(props);
   }
 
@@ -28,17 +28,18 @@ class CartItem extends EventEmitter {
       values = this.parse(values);
     }
     if (this.validate(values)) {
-      Object.assign(this._props, values);
+      Object.assign(this.props, values);
+      this.props.discountSum = Number(values.price) * Number(values.discount) / 100;
       this.trigger('change', this, options);
     }
   }
 
   get(prop) {
-    return this._props[prop];
+    return this.props[prop];
   }
 
   toJSON() {
-    return Object.assign({}, this._props);
+    return Object.assign({}, this.props);
   }
 
   validate(props) {

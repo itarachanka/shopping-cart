@@ -18,7 +18,7 @@ import Controller from './Controller';
     errors: d.querySelector('div.errors'),
     footer: d.querySelector('tfoot tr')
   });
-  const controller = new Controller({
+  new Controller({
     cart,
     view
   });

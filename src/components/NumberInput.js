@@ -26,7 +26,7 @@ const numberFormat = {
 };
 
 function getSelection(input) {
-  let selection = { start: 0, end: 0};
+  let selection = { start: 0, end: 0 };
 
   if ('selectionStart' in input) {
     selection = {

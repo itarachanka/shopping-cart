@@ -4,7 +4,6 @@ import NumberInput from './components/NumberInput';
 const NAME = 1;
 const PRICE = 4;
 const DISCOUNTPRICE = 6;
-const ACTIONS = 7;
 
 // View.
 class View extends EventEmitter {

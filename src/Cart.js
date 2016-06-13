@@ -1,5 +1,4 @@
 import EventEmitter from './EventEmitter';
-import CartItem from './CartItem';
 
 const APP = 'shopping-cart';
 
@@ -79,7 +78,7 @@ class Cart extends EventEmitter {
   fetch() {
     let items = [];
     if (this.localstorage) {
-      items = JSON.parse(this.localstorage[APP] || '{}').items || [];
+      items = JSON.parse(this.localstorage.getItem(APP) || '{}').items || [];
     }
     this.reset(items);
   }
@@ -88,7 +87,7 @@ class Cart extends EventEmitter {
     this.length = 0;
     this.items = [];
 
-    items = this.add(items, {silent: true, parse: true});
+    items = this.add(items, { silent: true, parse: true });
     this.trigger('reset', this);
     return items;
   }
@@ -100,9 +99,9 @@ class Cart extends EventEmitter {
       this.items.forEach(model => {
         toSave.push(model.toJSON());
       });
-      this.localstorage[APP] = JSON.stringify({
+      this.localstorage.setItem(APP, JSON.stringify({
         items: toSave
-      });
+      }));
     }
   }
 }
